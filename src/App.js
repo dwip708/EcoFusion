@@ -56,7 +56,7 @@ function App() {
       <div>
       <CustomNavbar />
         <Routes>
-          <Route exact path="/" element={<HomePage />} />
+          <Route path="/" element={<HomePage />} />
           <Route path="/contact" element={<ContactUs />} />
           <Route path="/login-signup" element={<LoginSignupPage />} />
           <Route path="/products" element={<Products />} />
