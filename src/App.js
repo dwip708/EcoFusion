@@ -52,11 +52,11 @@ function App() {
 
 
   return (
-    <Router>
+    <Router basename='/EcoFusion'>
       <div>
       <CustomNavbar />
         <Routes>
-          <Route path="/" element={<HomePage />} />
+          <Route exact path="/EcoFusion" element={<HomePage />} />
           <Route path="/contact" element={<ContactUs />} />
           <Route path="/login-signup" element={<LoginSignupPage />} />
           <Route path="/products" element={<Products />} />
