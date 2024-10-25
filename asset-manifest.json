@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/ReNatured/static/css/main.d61b1d9a.css",
+    "main.js": "/ReNatured/static/js/main.c5974bb5.js",
+    "static/js/453.f6199abb.chunk.js": "/ReNatured/static/js/453.f6199abb.chunk.js",
+    "static/media/revicons.eot": "/ReNatured/static/media/revicons.a77de540a38981833f9e.eot",
+    "static/media/revicons.ttf": "/ReNatured/static/media/revicons.57fd05d4ae650374c8de.ttf",
+    "static/media/revicons.woff": "/ReNatured/static/media/revicons.e8746a624ed098489406.woff",
+    "index.html": "/ReNatured/index.html",
+    "main.d61b1d9a.css.map": "/ReNatured/static/css/main.d61b1d9a.css.map",
+    "main.c5974bb5.js.map": "/ReNatured/static/js/main.c5974bb5.js.map",
+    "453.f6199abb.chunk.js.map": "/ReNatured/static/js/453.f6199abb.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d61b1d9a.css",
+    "static/js/main.c5974bb5.js"
+  ]
+}
