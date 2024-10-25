@@ -1,18 +1,18 @@
 {
   "files": {
     "main.css": "/EcoFusion/static/css/main.afc9422d.css",
-    "main.js": "/EcoFusion/static/js/main.b2026c70.js",
+    "main.js": "/EcoFusion/static/js/main.8a09735b.js",
     "static/js/453.f6199abb.chunk.js": "/EcoFusion/static/js/453.f6199abb.chunk.js",
     "static/media/revicons.eot": "/EcoFusion/static/media/revicons.a77de540a38981833f9e.eot",
     "static/media/revicons.ttf": "/EcoFusion/static/media/revicons.57fd05d4ae650374c8de.ttf",
     "static/media/revicons.woff": "/EcoFusion/static/media/revicons.e8746a624ed098489406.woff",
     "index.html": "/EcoFusion/index.html",
     "main.afc9422d.css.map": "/EcoFusion/static/css/main.afc9422d.css.map",
-    "main.b2026c70.js.map": "/EcoFusion/static/js/main.b2026c70.js.map",
+    "main.8a09735b.js.map": "/EcoFusion/static/js/main.8a09735b.js.map",
     "453.f6199abb.chunk.js.map": "/EcoFusion/static/js/453.f6199abb.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.afc9422d.css",
-    "static/js/main.b2026c70.js"
+    "static/js/main.8a09735b.js"
   ]
 }
