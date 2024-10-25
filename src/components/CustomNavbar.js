@@ -33,7 +33,7 @@ function CustomNavbar() {
               className="d-inline-block align-top"
               alt="Logo"
             />
-            <span className="brand-name">ReNatured</span>
+            <span className="brand-name">EcoFusion</span>
            
           </Navbar.Brand>
 
