@@ -26,35 +26,35 @@ const responsive = {
 const deals = [
     {
       id: 1,
-      img: 'https://via.placeholder.com/300x200',
+      img: 'https://placehold.co/300x200',
       title: 'Deal Product 1',
       description: 'This is a great deal product.',
       price: 19.99
     },
     {
       id: 2,
-      img: 'https://via.placeholder.com/300x200',
+      img: 'https://placehold.co/300x200',
       title: 'Deal Product 2',
       description: 'Special discount on this product.',
       price: 29.99
     },
     {
       id: 3,
-      img: 'https://via.placeholder.com/300x200',
+      img: 'https://placehold.co/300x200',
       title: 'Deal Product 3',
       description: 'Limited time offer.',
       price: 39.99
     },
     {
       id: 4,
-      img: 'https://via.placeholder.com/300x200',
+      img: 'https://placehold.co/300x200',
       title: 'Deal Product 4',
       description: 'Buy one get one free.',
       price: 49.99
     },
     {
       id: 5,
-      img: 'https://via.placeholder.com/300x200',
+      img: 'https://placehold.co/300x200',
       title: 'Deal Product 5',
       description: 'Huge savings on this product.',
       price: 59.99
@@ -64,42 +64,42 @@ const deals = [
   const newArrivals = [
     {
       id: 1,
-      img: 'https://via.placeholder.com/300x200',
+      img: 'https://placehold.co/300x200',
       title: 'New Arrival 1',
       description: 'Just arrived in our store.',
       price: 24.99
     },
     {
       id: 2,
-      img: 'https://via.placeholder.com/300x200',
+      img: 'https://placehold.co/300x200',
       title: 'New Arrival 2',
       description: 'Fresh stock of this product.',
       price: 34.99
     },
     {
       id: 3,
-      img: 'https://via.placeholder.com/300x200',
+      img: 'https://placehold.co/300x200',
       title: 'New Arrival 3',
       description: 'New and trendy item.',
       price: 44.99
     },
     {
       id: 4,
-      img: 'https://via.placeholder.com/300x200',
+      img: 'https://placehold.co/300x200',
       title: 'New Arrival 4',
       description: 'Latest addition to our collection.',
       price: 54.99
     },
     {
       id: 5,
-      img: 'https://via.placeholder.com/300x200',
+      img: 'https://placehold.co/300x200',
       title: 'New Arrival 5',
       description: 'Hot off the press.',
       price: 64.99
     },
     {
       id: 6,
-      img: 'https://via.placeholder.com/300x200',
+      img: 'https://placehold.co/300x200',
       title: 'New Arrival 6',
       description: 'Check out our newest item.',
       price: 74.99
@@ -109,42 +109,42 @@ const deals = [
   const evergreen = [
     {
       id: 1,
-      img: 'https://via.placeholder.com/300x200',
+      img: 'https://placehold.co/300x200',
       title: 'Evergreen Product 1',
       description: 'A timeless classic.',
       price: 39.99
     },
     {
       id: 2,
-      img: 'https://via.placeholder.com/300x200',
+      img: 'https://placehold.co/300x200',
       title: 'Evergreen Product 2',
       description: 'Always in demand.',
       price: 49.99
     },
     {
       id: 3,
-      img: 'https://via.placeholder.com/300x200',
+      img: 'https://placehold.co/300x200',
       title: 'Evergreen Product 3',
       description: 'Popular choice among customers.',
       price: 59.99
     },
     {
       id: 4,
-      img: 'https://via.placeholder.com/300x200',
+      img: 'https://placehold.co/300x200',
       title: 'Evergreen Product 4',
       description: 'A product that never goes out of style.',
       price: 69.99
     },
     {
       id: 5,
-      img: 'https://via.placeholder.com/300x200',
+      img: 'https://placehold.co/300x200',
       title: 'Evergreen Product 5',
       description: 'A staple in our inventory.',
       price: 79.99
     },
     {
       id: 6,
-      img: 'https://via.placeholder.com/300x200',
+      img: 'https://placehold.co/300x200',
       title: 'Evergreen Product 6',
       description: 'A must-have for everyone.',
       price: 89.99
