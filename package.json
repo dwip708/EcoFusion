@@ -1,8 +1,7 @@
 {
   "name": "ecomm",
   "version": "0.1.0",
-  "homepage": "https://dwip708.github.io/EcoFusion",
-  "private": false,
+  "private": true,
   "dependencies": {
     "@fortawesome/free-solid-svg-icons": "^6.6.0",
     "@fortawesome/react-fontawesome": "^0.2.2",
