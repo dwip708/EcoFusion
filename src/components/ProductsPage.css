@@ -1,0 +1,48 @@
+/* src/components/ProductsPage.css */
+.page-container {
+  
+}
+
+.banner-container {
+  position: relative;
+  width: 100%;
+}
+
+.banner-image {
+  width: 100%;
+}
+
+.shop-now-button {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background-color: white;
+  border: 1px solid #ccc;
+}
+
+.product-card {
+  height: 400px;
+  position: relative;
+  overflow: hidden;
+  margin: 10px;
+  margin-bottom: 20px;
+}
+.product-card-open {
+    height: 400px;
+    position: relative;
+    overflow: hidden;
+    
+    margin-bottom: 20px;
+  }
+
+.show-all-button {
+  margin-bottom: 20px;
+  color: red;
+  text-decoration: underline;
+}
+
+.footer {
+  background-color: #f1f1f1;
+  padding: 20px 0;
+  text-align: center
+}

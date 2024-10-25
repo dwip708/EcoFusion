@@ -1,0 +1,116 @@
+@import 'https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css';
+
+.profile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f1f1f1;
+}
+
+.profile-card {
+  background-color: #fff;
+  padding: 60px;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 500px;
+  position: relative;
+}
+
+.profile-pic-container {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.profile-pic {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  border: 5px solid #ff5722;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+  position: relative;
+}
+
+.abstract-art {
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 50%, #ff9800, transparent);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+  z-index: 0;
+}
+
+.profile-details h2 {
+  margin: 10px 0;
+  color: #ff5722;
+  font-weight: bold;
+}
+
+.profile-details p {
+  margin: 5px 0;
+  color: #333;
+  font-weight: 300;
+}
+
+.profile-edit input,
+.profile-edit select {
+  display: block;
+  margin: 10px 0;
+  padding: 10px;
+  width: calc(100% - 22px);
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.profile-edit .phone-container {
+  display: flex;
+  align-items: center;
+}
+
+.profile-edit .country-dropdown {
+  margin-right: 10px;
+  width: 30%;
+}
+
+.profile button {
+  padding: 10px 20px;
+  background-color: #ff5722;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background-color 0.3s ease;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.profile button:hover {
+  background-color: #e64a19;
+}
+
+.edit-button {
+  background-color: #4caf50;
+}
+
+.edit-button:hover {
+  background-color: #388e3c;
+}
+
+.save-button {
+  background-color: #2196f3;
+}
+
+.save-button:hover {
+  background-color: #1976d2;
+}
+
+.flag-icon {
+  margin-right: 10px;
+}

@@ -1,0 +1,103 @@
+/* Navbar Styles */
+.custom-navbar {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* transition: background-color 0.4s ease-in-out, box-shadow 0.4s ease-in-out; */
+    position: relative;
+  }
+  
+  /* Brand Name Styling */
+  .custom-navbar .brand-name {
+    font-weight: bold;
+    font-size: 1.25rem;
+    margin-left: 0.5rem;
+    color: #333;
+    transition: color 0.1s ease-in-out;
+  }
+  
+  .custom-navbar .brand-name:hover {
+    color: #007bff;
+  }
+  
+  /* Navbar Links */
+  .custom-navbar .nav-item {
+    color: #555;
+    font-weight: 500;
+    position: relative;
+    padding: 10px 0px;
+    margin-left: 20px;
+    overflow: hidden;
+    transition: color 0.2s ;
+  }
+  
+  /* Hover Effect for Links */
+  .custom-navbar .nav-item:hover {
+    color: #007bff;
+  }
+  
+  .custom-navbar .nav-item::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    width: 0;
+    background: #007bff;
+    transition: width 0.4s ;
+  }
+  
+  .custom-navbar .nav-item:hover::after {
+    width: 100%; /* Full underline on hover */
+  }
+  
+  /* Active Link Styling */
+  .custom-navbar .nav-item.active-link {
+    color: #fff;
+    background-color: #5ba4f2;
+    font-weight: 600;
+    padding: 10px 15px;
+    border-radius: 25px;
+    position: relative;
+    overflow: hidden;
+    /* transition: background-color 0.4s ease-in-out, color 0.4s ease-in-out; */
+  }
+  
+  /* Animated Border for Active Link */
+  .custom-navbar .nav-item.active-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(to right, #79a7ec, #85c1f2);
+  }
+  
+  .search-form2  {
+    margin-right: 10px; /* Adjust the spacing as needed */
+    min-width: 150px;
+    max-width: 700px;
+  }
+  .search-form .form-control {
+    margin-right: 10px; /* Adjust the spacing as needed */
+    width: 250px;
+  }
+  .basic-navbar-nav-col
+  {
+    padding-top: 200px;
+    width: 20px;
+  }
+
+  @media (max-width: 768px) {
+    /* Example: Adjust styles for smaller screens */
+    .custom-navbar {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+        flex-direction: column;
+    }
+ 
+
+    .nav-item {
+        margin-top: 12px; /* Remove margin for mobile */
+        
+    }
+}
