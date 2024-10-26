@@ -12,7 +12,7 @@ function CustomNavbar() {
 
   useEffect(() => {
     const handleResize = () => {
-      setIsLargeScreen(window.innerWidth > 768);
+      setIsLargeScreen(window.innerWidth > 991);
     };
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
@@ -63,6 +63,12 @@ function CustomNavbar() {
               <Nav.Link href="/contact" className={`nav-item ${currentPath === '/contact' ? 'active-link' : ''}`}>
                 Contact Us
               </Nav.Link>
+              <Nav.Link href="/cart" className={`nav-item ${currentPath === '/cart' ? 'active-link' : ''}`}>
+                Cart
+              </Nav.Link>
+              <Nav.Link href="/profile" className={`nav-item ${currentPath === '/profile' ? 'active-link' : ''}`}>
+                Profile
+              </Nav.Link>
             </Nav>
 
             {isLargeScreen &&
@@ -78,15 +84,6 @@ function CustomNavbar() {
               </Button>
               </Form>
             }
-
-            <Nav>
-              <Nav.Link href="/cart" className={`nav-item ${currentPath === '/cart' ? 'active-link' : ''}`}>
-                Cart
-              </Nav.Link>
-              <Nav.Link href="/profile" className={`nav-item ${currentPath === '/profile' ? 'active-link' : ''}`}>
-                Profile
-              </Nav.Link>
-            </Nav>
           </Navbar.Collapse>
         </Container>
       </Navbar>

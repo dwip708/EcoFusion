@@ -64,26 +64,40 @@ const CartPage = () => {
       removeFromCart(productId);
     } else {
       const product = cart.find(item => item._id === productId);
-      if (product && quantity > product.stock && op === 1) {
-        setError(`Only ${product.stock} items left in stock.`);
-      }
-      else if (op == 0 && quantity > 0) {
-        updateCart(productId, quantity);
-      } else {
-        setError('');
-        updateCart(productId, quantity);
+      if (product) {
+        if (quantity > product.stock && op === 1) {
+          const errorMessage = `Only ${product.stock} items left in stock.`;
+          setError(errorMessage);
+  
+          // Clear the error after 3 seconds
+          setTimeout(() => {
+            setError('');
+          }, 1000); // 3000 milliseconds = 3 seconds
+        } else if (op === 0 && quantity > 0) {
+          updateCart(productId, quantity);
+        } else {
+          setError('');
+          updateCart(productId, quantity);
+        }
       }
     }
   };
+  
 
   const handleCheckout = () => {
     const itemsToCheckout = cart.filter(item => item.stock >= item.quantity);
     if (itemsToCheckout.length === 0) {
       setError('No items available for checkout.');
+  
+      // Set a timeout to clear the error after 5 seconds
+      setTimeout(() => {
+        setError(''); // Clear the error message
+      }, 1200); // 5000 milliseconds = 5 seconds
     } else {
       console.log('Proceeding to checkout with:', itemsToCheckout);
     }
   };
+  
 
   const subtotal = cart.reduce((total, item) => total + item.price * item.quantity, 0);
   const [isLargeScreen, setIsLargeScreen] = useState(window.innerWidth > 768);
@@ -91,6 +105,7 @@ const CartPage = () => {
   return (
     <div className="cart-container">
       <h2 className="cart-title"><FaShoppingCart /> Shopping Cart</h2>
+      {error && <p className="cart-error">{error}</p>}
       <div className="cart-items">
         {cart.length > 0 ? (
           cart.map((item) => (
@@ -126,7 +141,7 @@ const CartPage = () => {
         <h3>Subtotal: ${subtotal.toFixed(2)}</h3>
         <button onClick={handleCheckout}>Proceed to Checkout</button>
       </div>
-      {error && <p className="cart-error">{error}</p>}
+      
     </div>
   );
 };
