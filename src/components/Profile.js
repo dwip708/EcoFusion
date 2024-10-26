@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 import './Profile.css';
-import countryList from 'react-select-country-list';
-import Select from 'react-select';
 
 const Profile = () => {
   const [user, setUser] = useState({
@@ -13,87 +11,193 @@ const Profile = () => {
     joined: '2020-01-15',
     country: 'US',
     profilePic: '/ppic.jpg',
+    balance: "38.00$",
   });
 
   const [isEditing, setIsEditing] = useState(false);
-  const [newDetails, setNewDetails] = useState({ ...user });
-  const [countries, setCountries] = useState(countryList().getData());
+  const [editedUser, setEditedUser] = useState({ ...user });
+  const [selectedTab, setSelectedTab] = useState('Personal Information');
 
   const handleEdit = () => {
-    if (isEditing) {
-      if (!validatePhoneNumber(newDetails.mobile)) {
-        alert('Invalid phone number');
-        return;
-      }
-      setUser({ ...newDetails });
-    }
-    setIsEditing(!isEditing);
+    setIsEditing(true);
   };
 
-  const validatePhoneNumber = (number) => {
-    const phoneRegex = /^[0-9]{10}$/;
-    return phoneRegex.test(number);
+  const handleSave = () => {
+    setUser(editedUser);
+    setIsEditing(false);
+  };
+
+  const handleCancel = () => {
+    setEditedUser({ ...user });
+    setIsEditing(false);
+  };
+
+  const handleChange = (e) => {
+    setEditedUser({
+      ...editedUser,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const menuItems = [
+    'My Wallet',
+    'My Rewards',
+    'My Orders',
+    'Personal Information',
+    'Rewards',
+    'Addresses',
+    'Payment Methods',
+    'Contact Preferences',
+    'Social Networks'
+  ];
+
+  const handleMenuClick = (item) => {
+    setSelectedTab(item);
   };
 
   return (
-    <div className="profile">
-      <div className="profile-card">
-        <div className="profile-pic-container">
-          <img src={user.profilePic} alt="Profile" className="profile-pic" />
-          <div className="abstract-art"></div>
-        </div>
-        {isEditing ? (
-          <div className="profile-edit">
-            <input
-              type="text"
-              value={newDetails.name}
-              onChange={(e) => setNewDetails({ ...newDetails, name: e.target.value })}
-              placeholder="Name"
-              required
-            />
-            <div className="phone-container">
-              <Select
-                className="country-dropdown"
-                options={countries}
-                value={countries.find(country => country.value === newDetails.country)}
-                onChange={(value) => setNewDetails({ ...newDetails, country: value.value })}
-                placeholder="Select Country"
-              />
-              <input
-                type="text"
-                value={newDetails.mobile}
-                onChange={(e) => setNewDetails({ ...newDetails, mobile: e.target.value })}
-                placeholder="Mobile"
-                required
+    <div className="profile-container">
+      <div className="profile-grid">
+        {/* Left Column */}
+        <div className="left-column">
+          {/* Profile Card */}
+          <div className="profile-card">
+            <div className="profile-pic-wrapper">
+              <div className="profile-pic-gradient"></div>
+              <img
+                src={user.profilePic}
+                alt="Profile"
+                className="profile-pic"
               />
             </div>
-            <select
-              value={newDetails.gender}
-              onChange={(e) => setNewDetails({ ...newDetails, gender: e.target.value })}
-            >
-              <option value="Male">Male</option>
-              <option value="Female">Female</option>
-              <option value="Non-binary">Non-binary</option>
-              <option value="Not to disclose">Not to disclose</option>
-            </select>
-            <button onClick={handleEdit} className="save-button">Save</button>
+            <h2 className="profile-name">{user.name}</h2>
+            <div className="balance-badge">
+              Balance: {user.balance}
+            </div>
           </div>
-        ) : (
-          <div className="profile-details">
-            <h2>{user.name}</h2>
-            <p>Email: {user.email}</p>
-            <p>Mobile: {user.mobile}</p>
-            <p>Gender: {user.gender}</p>
-            <p>Orders: {user.orders}</p>
-            <p>Joined: {new Date(user.joined).toLocaleDateString()}</p>
-            <p>
-              Country: 
-              <span className={`flag-icon flag-icon-${user.country.toLowerCase()}`}></span> 
-              {user.country}
-            </p>
-            <button onClick={handleEdit} className="edit-button">Edit</button>
+
+          {/* Navigation Menu */}
+          <div className="nav-menu">
+            <nav>
+              {menuItems.map((item, index) => (
+                <button
+                  key={index}
+                  className={`nav-button ${selectedTab === item ? 'selected' : ''}`}
+                  onClick={() => handleMenuClick(item)}
+                >
+                  {item}
+                </button>
+              ))}
+            </nav>
           </div>
-        )}
+        </div>
+
+        {/* Right Column */}
+        <div className="right-column">
+          <div className="header">
+            <h2>{selectedTab}</h2>
+            {selectedTab === 'Personal Information' && (
+              !isEditing ? (
+                <button
+                  onClick={handleEdit}
+                  className="edit-button"
+                >
+                  <svg className="button-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+                  </svg>
+                  Edit Profile
+                </button>
+              ) : (
+                <div className="button-group">
+                  <button
+                    onClick={handleSave}
+                    className="save-button"
+                  >
+                    <svg className="button-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    Save
+                  </button>
+                  <button
+                    onClick={handleCancel}
+                    className="cancel-button"
+                  >
+                    <svg className="button-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                    Cancel
+                  </button>
+                </div>
+              )
+            )}
+          </div>
+
+          <div className="content">
+            {selectedTab === 'Personal Information' && (
+              isEditing ? (
+                // Edit Mode
+                <div className="edit-grid">
+                  <div className="form-group">
+                    <label>Name</label>
+                    <input
+                      type="text"
+                      name="name"
+                      value={editedUser.name}
+                      onChange={handleChange}
+                    />
+                  </div>
+                  <div className="form-group">
+                    <label>Email</label>
+                    <input
+                      type="email"
+                      name="email"
+                      value={editedUser.email}
+                      onChange={handleChange}
+                    />
+                  </div>
+                  <div className="form-group">
+                    <label>Mobile</label>
+                    <input
+                      type="tel"
+                      name="mobile"
+                      value={editedUser.mobile}
+                      onChange={handleChange}
+                    />
+                  </div>
+                  <div className="form-group">
+                    <label>Gender</label>
+                    <select
+                      name="gender"
+                      value={editedUser.gender}
+                      onChange={handleChange}
+                    >
+                      <option value="Male">Male</option>
+                      <option value="Female">Female</option>
+                      <option value="Other">Other</option>
+                    </select>
+                  </div>
+                </div>
+              ) : (
+                // View Mode
+                <div className="view-grid">
+                  {Object.entries(user).map(([key, value]) => {
+                    if (!['profilePic', 'balance', 'orders'].includes(key)) {
+                      return (
+                        <div key={key} className="info-group">
+                          <label className="info-label">
+                            {key.replace(/([A-Z])/g, ' $1').trim()}
+                          </label>
+                          <p className="info-value">{value}</p>
+                        </div>
+                      );
+                    }
+                    return null;
+                  })}
+                </div>
+              )
+            )}
+          </div>
+        </div>
       </div>
     </div>
   );
