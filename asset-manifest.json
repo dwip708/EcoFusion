@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/EcoFusion/static/css/main.c9c4a42d.css",
-    "main.js": "/EcoFusion/static/js/main.00487f14.js",
+    "main.css": "/EcoFusion/static/css/main.ef68b8e2.css",
+    "main.js": "/EcoFusion/static/js/main.63445bf8.js",
     "static/js/453.f6199abb.chunk.js": "/EcoFusion/static/js/453.f6199abb.chunk.js",
     "static/media/revicons.eot": "/EcoFusion/static/media/revicons.a77de540a38981833f9e.eot",
     "static/media/revicons.ttf": "/EcoFusion/static/media/revicons.57fd05d4ae650374c8de.ttf",
     "static/media/revicons.woff": "/EcoFusion/static/media/revicons.e8746a624ed098489406.woff",
     "index.html": "/EcoFusion/index.html",
-    "main.c9c4a42d.css.map": "/EcoFusion/static/css/main.c9c4a42d.css.map",
-    "main.00487f14.js.map": "/EcoFusion/static/js/main.00487f14.js.map",
+    "main.ef68b8e2.css.map": "/EcoFusion/static/css/main.ef68b8e2.css.map",
+    "main.63445bf8.js.map": "/EcoFusion/static/js/main.63445bf8.js.map",
     "453.f6199abb.chunk.js.map": "/EcoFusion/static/js/453.f6199abb.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.c9c4a42d.css",
-    "static/js/main.00487f14.js"
+    "static/css/main.ef68b8e2.css",
+    "static/js/main.63445bf8.js"
   ]
 }
