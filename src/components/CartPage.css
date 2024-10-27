@@ -227,6 +227,12 @@
   }
 }
 
+/*
+* =============------------------------------------===============
+*  ⬇⬇ STYLING FOR CART SECTION By Aqib Ali Mughal | 27-OTC-2024 ⬇⬇
+* =============------------------------------------===============
+*/
+
 /**
 * STYLES FOR RIGHT SIDE OF CART SECTION [Pricing Module]
 */
@@ -252,4 +258,91 @@
 td {
   padding: 16px;
   text-align: left;
+}
+
+#pricing-section{
+  margin: 0px 9px;
+}
+
+/* 
+* Styling for Tablet or similar devices 
+*/
+@media (max-width: 1200px) {
+  .d-flex {
+      flex-direction: column;
+  }
+
+  .cart-summary {
+      width: 100%;
+  }
+
+  .cart-items {
+      width: 100%;
+  }
+
+  #pricing-section{
+    margin: 0px auto;
+  }
+}
+
+/*
+* Styling for mobile devices
+*/
+@media (max-width: 768px) {
+  .cart-item {
+      flex-direction: column;
+      align-items: flex-start;
+  }
+
+  .cart-item-image {
+      max-width: 100%;
+      margin-bottom: 10px;
+  }
+
+  .cart-item-remove {
+      align-self: flex-end;
+      cursor: pointer;
+      color: #ff0000;
+  }
+
+  .cart-summary {
+      margin-top: 20px;
+      width: 100%;
+  }
+
+  .table th, .table td {
+      font-size: 0.9rem;
+  }
+
+  #pricing-section{
+    margin: 10px auto;
+  }
+  .table{
+    border-spacing: 0px;
+  }
+}
+
+/*
+* Devices Smaller than normal mobile devices
+*/
+@media (max-width: 480px) {
+  .cart-title {
+      font-size: 1.2rem;
+  }
+
+  .cart-item {
+      padding: 8px;
+  }
+
+  .empty-cart-message h2 {
+      font-size: 1.5rem;
+  }
+
+  .empty-cart-message p {
+      font-size: 0.9rem;
+  }
+
+  #pricing-section{
+    margin: 10px auto;
+  }
 }
