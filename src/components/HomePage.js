@@ -76,11 +76,11 @@ function HomePage() {
     {bestsellers.map((product) => (
       <div key={product.id} className="card-container">
         <Card className="bestseller-card">
-        <Card.Body>
+          <Card.Img variant="top" src={product.img} />
+          <Card.Body>
             <Card.Title>{product.title}</Card.Title>
             <Card.Text>${product.price}</Card.Text>
           </Card.Body>
-          <Card.Img variant="top" src={product.img} />
          
           <div className="dropdown-hover">
             <div className="dropdown-content">
@@ -91,7 +91,7 @@ function HomePage() {
                   <Button onClick={() => addToCart(product.id)}>+</Button>
                 </div>
               ) : (
-                <Button onClick={() => addToCart(product.id)}>Buy Now</Button>
+                <Button onClick={() => addToCart(product.id)}>Add</Button>
               )}
             </div>
           </div>
