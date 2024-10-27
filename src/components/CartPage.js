@@ -3,6 +3,7 @@ import { FaShoppingCart } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 import { Container, Navbar, Nav, Form, FormControl, Button } from 'react-bootstrap';
 import './CartPage.css';
+import { FaCartArrowDown } from 'react-icons/fa';
 
 const dummyProducts = [
   {
@@ -106,42 +107,77 @@ const CartPage = () => {
     <div className="cart-container">
       <h2 className="cart-title"><FaShoppingCart /> Shopping Cart</h2>
       {error && <p className="cart-error">{error}</p>}
-      <div className="cart-items">
-        {cart.length > 0 ? (
-          cart.map((item) => (
-            <div key={item._id} className={`cart-item ${item.stock < item.quantity ? 'out-of-stock-item' : ''}`}>
-              <div className="cart-item-remove" onClick={() => removeFromCart(item._id)}>×</div>
-              <img className="cart-item-image"src={item.image} alt={item.name} />
-<              div className="cart-item-details">
-                <h3>{item.name}</h3>
-                <p>{item.description}</p>
-                <div className="cart-item-price"><p>Price: ${item.price.toFixed(2)}</p></div>
-                <div className='net-cart-item'><p>Net Cost: ${(item.price * item.quantity).toFixed(2)}</p></div>
-                <div className="cart-item-quantity">
-                  <button onClick={() => handleQuantityChange(item._id, item.quantity - 1, 0)}>-</button>
-                  <span>{item.quantity}</span>
-                  {item.stock >= item.quantity && (
-                    <button onClick={() => handleQuantityChange(item._id, item.quantity + 1, 1)}>+</button>
+      <div class="d-flex">
+        <div className="cart-items col-md-8">
+          {cart.length > 0 ? (
+            cart.map((item) => (
+              <div key={item._id} className={`cart-item ${item.stock < item.quantity ? 'out-of-stock-item' : ''}`}>
+                <div className="cart-item-remove" onClick={() => removeFromCart(item._id)}>×</div>
+                <img className="cart-item-image"src={item.image} alt={item.name} />
+  <              div className="cart-item-details">
+                  <h3>{item.name}</h3>
+                  <p>{item.description}</p>
+                  <div className="cart-item-price"><p>Price: ${item.price.toFixed(2)}</p></div>
+                  <div className='net-cart-item'><p>Net Cost: ${(item.price * item.quantity).toFixed(2)}</p></div>
+                  <div className="cart-item-quantity">
+                    <button onClick={() => handleQuantityChange(item._id, item.quantity - 1, 0)}>-</button>
+                    <span>{item.quantity}</span>
+                    {item.stock >= item.quantity && (
+                      <button onClick={() => handleQuantityChange(item._id, item.quantity + 1, 1)}>+</button>
+                    )}
+                  </div>
+                  {item.stock <= item.quantity && item.stock > 0 && (
+                    <div className="out-of-stock"><p>Hurry! Only {item.stock} items left in stock</p></div>
+                  )}
+                  {item.stock == 0 && (
+                    <div className="out-of-stock"><p>Out of stock</p></div>
                   )}
                 </div>
-                {item.stock <= item.quantity && item.stock > 0 && (
-                  <div className="out-of-stock"><p>Hurry! Only {item.stock} items left in stock</p></div>
-                )}
-                {item.stock == 0 && (
-                  <div className="out-of-stock"><p>Out of stock</p></div>
-                )}
               </div>
+            ))
+          ) : (
+            <div className="empty-cart-message text-center shadow" style={{ marginTop: '50px', maxHeight: '100%' }}>
+                <h2>Your Cart is <span class="text-warning fw-bold">Empty</span></h2>
+                <p>Looks like you haven't added anything to your cart yet.</p>
+                <p>Browse our products and start shopping!</p>
+                <FaCartArrowDown size={32}/>
             </div>
-          ))
-        ) : (
-          <p>Your cart is empty.</p>
-        )}
-      </div>
-      <div className="cart-summary">
+          )}
+        </div>
+        <div className="cart-summary col-md-4 mx-3 shadow" style={{border: '2px solid #5ba4f2'}}>
+          <h3 style={{borderBottom: '2px solid #efefef'}}>Cart Summary</h3>
+          <div id='item-price-section' style={{ minHeight: '300px' }}>
+            <table className="table">
+                <thead>
+                    <tr>
+                        <th>Item No</th>
+                        <th>Item Name</th>
+                        <th>Quantity</th>
+                        <th>Total Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {cart.length > 0 ? (
+                      cart.map((item) => (
+                        <tr className="card-row">
+                          <td>{item._id}</td>
+                          <td>{item.name}</td>
+                          <td>{item.quantity}</td>
+                          <td>${(item.price * item.quantity).toFixed(2)}</td>
+                        </tr>
+                      ))
+                    ) : (
+                        <tr>
+                          <td colSpan={4}>No item selected</td>
+                        </tr>
+                    )}
+                </tbody>
+            </table>
+        </div>
         <h3>Subtotal: ${subtotal.toFixed(2)}</h3>
-        <button onClick={handleCheckout}>Proceed to Checkout</button>
+          <button onClick={handleCheckout}>Proceed to Checkout</button>
+        </div>
       </div>
-      
     </div>
   );
 };
