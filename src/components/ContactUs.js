@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
-import { Search } from 'lucide-react';
 
 const ContactUs = () => {
-  const [selectedCategory, setSelectedCategory] = useState('order');
+  const [selectedCategory, setSelectedCategory] = useState('general');
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    alert('Form submitted successfully!');
+  };
 
   const helpCategories = [
     {
@@ -32,145 +36,135 @@ const ContactUs = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
-      {/* Top Banner */}
-      <div className="bg-black text-white text-center text-sm py-2">
-        Advertisement: Free shipping on orders over $50!
+    <div className="w-full max-w-6xl mx-auto p-6">
+      <div className="text-center mb-8">
+        <h1 className="text-3xl font-bold mb-4">How Can We Help You?</h1>
+        <p className="text-gray-600">We're here to help and answer any question you might have</p>
       </div>
 
-      {/* Navigation */}
-      <nav className="bg-white shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
-          <div className="flex items-center space-x-2">
-            <div className="text-blue-500 text-2xl">⚛️</div>
-            <span className="font-bold text-xl">EcoFusion</span>
+      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
+        {helpCategories.map((category) => (
+          <div
+            key={category.id}
+            onClick={() => setSelectedCategory(category.id)}
+            className={`p-6 rounded-lg cursor-pointer transition-all duration-300 hover:shadow-lg ${
+              selectedCategory === category.id
+                ? 'bg-blue-50 border-2 border-blue-500'
+                : 'bg-white border-2 border-gray-100'
+            }`}
+          >
+            <div className="text-4xl mb-3">{category.icon}</div>
+            <h3 className="text-lg font-semibold mb-2">{category.title}</h3>
+            <p className="text-sm text-gray-600">{category.description}</p>
           </div>
-          
-          <div className="flex items-center space-x-8">
-            <a href="#" className="hover:text-blue-500 transition-colors">Home</a>
-            <a href="#" className="hover:text-blue-500 transition-colors">Products</a>
-            <a href="#" className="bg-blue-500 text-white px-4 py-2 rounded-full hover:bg-blue-600 transition-colors">Contact Us</a>
-            <a href="#" className="hover:text-blue-500 transition-colors">Cart</a>
-            <a href="#" className="hover:text-blue-500 transition-colors">Profile</a>
-            
-            <div className="relative">
-              <input 
-                type="text" 
-                placeholder="Search"
-                className="pl-4 pr-10 py-2 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-              />
-              <Search className="absolute right-3 top-2.5 text-gray-400 h-5 w-5" />
-            </div>
+        ))}
+      </div>
+
+      <div className="bg-white rounded-lg shadow-lg p-8 max-w-2xl mx-auto">
+        <h2 className="text-2xl font-bold mb-6 text-center">Contact Form</h2>
+        <form id="contactForm" onSubmit={handleSubmit}>
+          <div className="mb-6">
+            <label className="block text-gray-700 font-semibold mb-2" htmlFor="name">
+              Name:
+            </label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              required
+            />
           </div>
-        </div>
-      </nav>
 
-      {/* Main Content */}
-      <div className="max-w-7xl mx-auto px-4 py-8">
-        {/* Header */}
-        <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold mb-4 text-gray-800 animate-fade-in">
-            How Can We Help You?
-          </h1>
-          <p className="text-gray-600">
-            We're here to help and answer any question you might have
-          </p>
-        </div>
+          <div className="mb-6">
+            <label className="block text-gray-700 font-semibold mb-2" htmlFor="email">
+              Email:
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              required
+            />
+          </div>
 
-        {/* Help Categories Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-          {helpCategories.map((category) => (
-            <div
-              key={category.id}
-              onClick={() => setSelectedCategory(category.id)}
-              className={`p-6 rounded-xl cursor-pointer transform transition-all duration-300 hover:-translate-y-1 ${
-                selectedCategory === category.id
-                  ? 'bg-blue-50 border-2 border-blue-500 shadow-lg'
-                  : 'bg-white border border-gray-200 hover:shadow-lg'
-              }`}
+          <div className="mb-6">
+            <label className="block text-gray-700 font-semibold mb-2" htmlFor="category">
+              Help Category:
+            </label>
+            <select
+              id="category"
+              name="category"
+              value={selectedCategory}
+              onChange={(e) => setSelectedCategory(e.target.value)}
+              className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
             >
-              <div className="text-4xl mb-4 animate-bounce-subtle">{category.icon}</div>
-              <h3 className="text-lg font-semibold mb-2 text-gray-800">{category.title}</h3>
-              <p className="text-sm text-gray-600 line-clamp-2">{category.description}</p>
-            </div>
-          ))}
-        </div>
+              <option value="general">General Inquiry</option>
+              <option value="order">Order Support</option>
+              <option value="account">Account Support</option>
+              <option value="product">Product Support</option>
+              <option value="technical">Technical Support</option>
+            </select>
+          </div>
 
-        {/* Contact Form */}
-        <div className="bg-white rounded-xl shadow-lg p-8 max-w-2xl mx-auto border border-gray-100">
-          <h2 className="text-2xl font-bold mb-6 text-center text-gray-800">Contact Form</h2>
-          <form className="space-y-6">
-            <div className="grid grid-cols-2 gap-6">
-              <div>
-                <label className="block text-gray-700 font-medium mb-2">Name</label>
-                <input
-                  type="text"
-                  className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
-                  required
-                />
-              </div>
-              <div>
-                <label className="block text-gray-700 font-medium mb-2">Email</label>
-                <input
-                  type="email"
-                  className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
-                  required
-                />
-              </div>
-            </div>
+          <div className="mb-6">
+            <label className="block text-gray-700 font-semibold mb-2" htmlFor="subject">
+              Subject:
+            </label>
+            <input
+              type="text"
+              id="subject"
+              name="subject"
+              className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              required
+            />
+          </div>
 
-            <div>
-              <label className="block text-gray-700 font-medium mb-2">Category</label>
-              <select
-                value={selectedCategory}
-                onChange={(e) => setSelectedCategory(e.target.value)}
-                className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
-              >
-                {helpCategories.map(cat => (
-                  <option key={cat.id} value={cat.id}>
-                    {cat.title}
-                  </option>
-                ))}
-              </select>
-            </div>
+          <div className="mb-6">
+            <label className="block text-gray-700 font-semibold mb-2" htmlFor="message">
+              Message:
+            </label>
+            <textarea
+              id="message"
+              name="message"
+              rows="5"
+              className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              required
+            ></textarea>
+          </div>
 
-            <div>
-              <label className="block text-gray-700 font-medium mb-2">Message</label>
-              <textarea
-                rows="4"
-                className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 resize-none"
-                required
-              ></textarea>
-            </div>
-
-            <div className="flex justify-center">
-              <button
-                type="submit"
-                className="bg-blue-500 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-600 transform hover:-translate-y-0.5 transition-all duration-300 focus:ring-4 focus:ring-blue-200"
-              >
-                Send Message
-              </button>
-            </div>
-          </form>
-        </div>
+          <div className="flex justify-center">
+            <button
+              type="submit"
+              className="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-300 focus:ring-4 focus:ring-blue-200"
+            >
+              Submit
+            </button>
+          </div>
+        </form>
       </div>
 
-      <style jsx>{`
-        @keyframes bounce-subtle {
-          0%, 100% { transform: translateY(0); }
-          50% { transform: translateY(-5px); }
-        }
-        .animate-bounce-subtle {
-          animation: bounce-subtle 2s infinite;
-        }
-        @keyframes fade-in {
-          from { opacity: 0; transform: translateY(-10px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
-        .animate-fade-in {
-          animation: fade-in 0.5s ease-out;
-        }
-      `}</style>
+      <div className="mt-12 grid md:grid-cols-3 gap-6 text-center">
+        <div className="p-6">
+          <div className="text-3xl mb-3">📞</div>
+          <h3 className="font-semibold mb-2">Call Us</h3>
+          <p className="text-gray-600">1-800-123-4567</p>
+          <p className="text-sm text-gray-500">Mon-Fri: 9am-6pm EST</p>
+        </div>
+        <div className="p-6">
+          <div className="text-3xl mb-3">💬</div>
+          <h3 className="font-semibold mb-2">Live Chat</h3>
+          <p className="text-gray-600">Chat with our support team</p>
+          <p className="text-sm text-gray-500">24/7 Available</p>
+        </div>
+        <div className="p-6">
+          <div className="text-3xl mb-3">📧</div>
+          <h3 className="font-semibold mb-2">Email Us</h3>
+          <p className="text-gray-600">support@example.com</p>
+          <p className="text-sm text-gray-500">We'll respond within 24 hours</p>
+        </div>
+      </div>
     </div>
   );
 };
