@@ -57,7 +57,7 @@
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  margin-left: 15rem;
+  margin-left: 3rem;
 }
 
 .cart-item-details h3 {
@@ -156,6 +156,8 @@
 }
 
 .cart-summary {
+
+  width: min-content;
   margin-top: 2rem;
   padding: 1.5rem;
   background: white;
@@ -225,6 +227,7 @@
    
     margin-left: 2rem;
   }
+
 }
 
 /*
@@ -239,6 +242,7 @@
 .table {
   width: 100%;
   border-collapse: separate; 
+
   border-spacing: 10px;
 }
 
@@ -274,10 +278,12 @@ td {
 
   .cart-summary {
       width: 100%;
+      
   }
 
   .cart-items {
       width: 100%;
+      
   }
 
   #pricing-section{
@@ -292,6 +298,7 @@ td {
   .cart-item {
       flex-direction: column;
       align-items: flex-start;
+      padding-left: 10px;
   }
 
   .cart-item-image {
