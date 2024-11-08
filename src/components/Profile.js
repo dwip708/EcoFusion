@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './Profile.css';
 import PersonalInformation from './ProfileComponents/PersonalInformation';
+import Address from './ProfileComponents/Address';
 
 const Profile = () => {
   const [user, setUser] = useState({
@@ -55,6 +56,28 @@ const Profile = () => {
     setSelectedTab(item);
   };
 
+  const renderContent = () => {
+    switch (selectedTab) {
+      case 'Personal Information':
+        return (
+          <PersonalInformation
+            selectedTab={selectedTab}
+            isEditing={isEditing}
+            handleEdit={handleEdit}
+            handleSave={handleSave}
+            handleCancel={handleCancel}
+            handleChange={handleChange}
+            editedUser={editedUser}
+            user={user}
+          />
+        );
+      case 'Addresses':
+        return <Address />;
+      default:
+        return null;
+    }
+  };
+
   return (
     <div className="profile-container">
       <div className="profile-grid">
@@ -75,7 +98,6 @@ const Profile = () => {
               Balance: {user.balance}
             </div>
           </div>
-
           {/* Navigation Menu */}
           <div className="nav-menu">
             <nav>
@@ -91,18 +113,8 @@ const Profile = () => {
             </nav>
           </div>
         </div>
-
         {/* Right Column */}
-        <PersonalInformation
-        selectedTab={selectedTab}
-        isEditing={isEditing}
-        handleEdit={handleEdit}
-        handleSave={handleSave}
-        handleCancel={handleCancel}
-        handleChange={handleChange}
-        editedUser={editedUser}
-        user={user}
-      />
+        {renderContent()}
       </div>
     </div>
   );
