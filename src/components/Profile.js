@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './Profile.css';
+import MyRewards from './ProfileComponents/MyRewardsComponents/MyRewards';
 import PersonalInformation from './ProfileComponents/PersonalInformation';
 
 const Profile = () => {
@@ -14,6 +15,14 @@ const Profile = () => {
     profilePic: '/ppic.jpg',
     balance: "38.00$",
   });
+
+  const rewards = [
+    { id: 1, title: '10% off on Electronics', issueDate: '2024-10-01', expired: false },
+    { id: 2, title: 'Buy 1 Get 1 Free', issueDate: '2024-09-15', expired: true },
+    { id: 3, title: '5% Cashback on Grocery', issueDate: '2024-08-10', expired: false },
+    { id: 4, title: '15% off on Fashion', issueDate: '2024-07-30', expired: true },
+    { id: 5, title: '20% off on Flights', issueDate: '2024-09-05', expired: false }
+  ];
 
   const [isEditing, setIsEditing] = useState(false);
   const [editedUser, setEditedUser] = useState({ ...user });
@@ -55,6 +64,27 @@ const Profile = () => {
     setSelectedTab(item);
   };
 
+  const handleMenuItemView = () => {
+    switch (selectedTab) {
+      case "My Rewards": 
+        return <MyRewards rewards={rewards}/>; 
+      case "Personal Information": 
+        return (
+          <PersonalInformation
+            selectedTab={selectedTab}
+            isEditing={isEditing}
+            handleEdit={handleEdit}
+            handleSave={handleSave}
+            handleCancel={handleCancel}
+            handleChange={handleChange}
+            editedUser={editedUser}
+            user={user}
+          />
+        )
+          
+    }
+  }
+
   return (
     <div className="profile-container">
       <div className="profile-grid">
@@ -93,16 +123,7 @@ const Profile = () => {
         </div>
 
         {/* Right Column */}
-        <PersonalInformation
-        selectedTab={selectedTab}
-        isEditing={isEditing}
-        handleEdit={handleEdit}
-        handleSave={handleSave}
-        handleCancel={handleCancel}
-        handleChange={handleChange}
-        editedUser={editedUser}
-        user={user}
-      />
+        {handleMenuItemView()}
       </div>
     </div>
   );
