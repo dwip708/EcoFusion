@@ -126,10 +126,9 @@ function HomePage() {
         <Container className="p-4">
           <Row>
             <Col lg={6} md={12} className="mb-4 mb-md-0">
-              <h5 className="text-uppercase">Company Name</h5>
+              <h5 className="text-uppercase">Eco Fusion</h5>
               <p>
-                Here you can use rows and columns to organize your footer content. Lorem ipsum dolor sit amet,
-                consectetur adipisicing elit.
+              A React-based, customizable e-commerce template for eco-friendly and sustainable products.
               </p>
             </Col>
 
@@ -137,16 +136,16 @@ function HomePage() {
               <h5 className="text-uppercase">Links</h5>
               <ul className="list-unstyled mb-0">
                 <li>
-                  <a href="#!" className="text-dark">Link 1</a>
+                  <a href="/" className="text-dark">Home</a>
                 </li>
                 <li>
-                  <a href="#!" className="text-dark">Link 2</a>
+                  <a href="/products" className="text-dark">Products</a>
                 </li>
                 <li>
-                  <a href="#!" className="text-dark">Link 3</a>
+                  <a href="/contact" className="text-dark">Contact us</a>
                 </li>
                 <li>
-                  <a href="#!" className="text-dark">Link 4</a>
+                  <a href="/cart" className="text-dark">Cart</a>
                 </li>
               </ul>
             </Col>
@@ -155,16 +154,13 @@ function HomePage() {
               <h5 className="text-uppercase mb-0">Links</h5>
               <ul className="list-unstyled">
                 <li>
-                  <a href="#!" className="text-dark">Link 1</a>
+                  <a href="/profile" className="text-dark">Profile</a>
                 </li>
                 <li>
-                  <a href="#!" className="text-dark">Link 2</a>
+                  <a href="/login-signup" className="text-dark">Login</a>
                 </li>
                 <li>
-                  <a href="#!" className="text-dark">Link 3</a>
-                </li>
-                <li>
-                  <a href="#!" className="text-dark">Link 4</a>
+                  <a href="/login-signup" className="text-dark">Signup</a>
                 </li>
               </ul>
             </Col>
@@ -172,8 +168,8 @@ function HomePage() {
         </Container>
 
         <div className="text-center p-3" style={{ backgroundColor: 'rgba(0, 0, 0, 0.2)' }}>
-          © 2024 Copyright:
-          <a className="text-dark" href="https://yourwebsite.com/"> yourwebsite.com</a>
+          © 2024 Copyright: EcoFusion
+          
         </div>
       </footer>
     </div>
